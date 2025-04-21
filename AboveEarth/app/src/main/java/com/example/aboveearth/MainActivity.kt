@@ -28,7 +28,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.example.aboveearth.ui.theme.AboveEarthTheme
+
 
 
 class MainActivity : ComponentActivity() {
@@ -36,7 +36,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            AboveEarthTheme{
+            MaterialTheme{
                 Scaffold(modifier = Modifier.fillMaxSize()) { sachin ->
                     Column(
                         modifier = Modifier
@@ -73,20 +73,19 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-
 @Composable
 
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun Greeting(name: String) {
     Text(
         text = "Hello $name!",
-        modifier = modifier
+
     )
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    AboveEarthTheme {
+    MaterialTheme {
         Greeting("Android")
     }
 }
