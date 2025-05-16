@@ -33,9 +33,8 @@ import jakarta.inject.Inject
  */
 class MainActivity : ComponentActivity() {
 
-    //@Inject lateinit var model: Model // 🔌 Yo Hilt, I want a Model — go look into your toolbox (DIModule) and figure out how to give it to me
     @Inject
-    lateinit var car: Car // 🔌 Yo Hilt, I want a Car — go look into your toolbox (DIModule) and figure out how to give it to me
+    lateinit var car: Car
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,8 +46,7 @@ class MainActivity : ComponentActivity() {
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     )
-                    /*val car = Car(Model()) //type of Manual dependency injection
-                    car.showCar()*/
+
 
                     car.showCar()
 
@@ -73,8 +71,11 @@ class Model(var chassis: Chassis) {
 
 }
 
-class Chassis() {
-    fun showChassisNO() {
+interface Chassis { // here we have defined an interface named it Chassis
+    fun showChassisNO()// abstract function named it showChassisNO
+}
+class ChassisImpl():Chassis {//Implement the interface ChassisImpl
+   override fun showChassisNO() {// override the abstract function showChassisNO
         println("23432")
     }
 }
